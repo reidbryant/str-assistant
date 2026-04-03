@@ -16,7 +16,7 @@ def main() -> None:
     try:
         logger.info(f"Starting STR Assistant on {settings.AGENT_HOST}:{settings.AGENT_PORT}")
         logger.info(f"MCP Server URL: {settings.MCP_SERVER_URL}")
-        logger.info(f"OpenAI model: {settings.OPENAI_MODEL}")
+        logger.info(f"OpenAI model: {settings.GEMINI_MODEL}")
 
         uvicorn_config: dict[str, Any] = {}
         if settings.AGENT_SSL_KEYFILE and settings.AGENT_SSL_CERTFILE:

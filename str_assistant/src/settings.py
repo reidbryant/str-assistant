@@ -34,9 +34,9 @@ class Settings(BaseSettings):
     POSTGRES_HOST: str = Field(default="pgvector")
     POSTGRES_PORT: int = Field(default=5432)
 
-    # LLM (OpenAI)
-    OPENAI_API_KEY: str = Field(default="")
-    OPENAI_MODEL: str = Field(default="gpt-4o-mini")
+    # LLM (Google Gemini — free tier)
+    GOOGLE_API_KEY: str = Field(default="")
+    GEMINI_MODEL: str = Field(default="gemini-2.0-flash")
 
     # Langfuse (optional tracing)
     LANGFUSE_PUBLIC_KEY: Optional[str] = Field(default=None)

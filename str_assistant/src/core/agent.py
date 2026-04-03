@@ -7,7 +7,7 @@ from typing import Any
 import yaml
 from deepagents import SubAgent, create_deep_agent
 from langchain_mcp_adapters.client import MultiServerMCPClient
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.checkpoint.memory import InMemorySaver
 
 from str_assistant.src.core.backend import get_backend
@@ -80,17 +80,17 @@ async def get_str_agent(sso_token: str | None = None):
                 AppExceptionCode.PRODUCTION_MCP_CONNECTION_ERROR,
             )
 
-    # Initialize OpenAI model
-    if not settings.OPENAI_API_KEY:
+    # Initialize Google Gemini model
+    if not settings.GOOGLE_API_KEY:
         raise AppException(
-            "OPENAI_API_KEY is not set. Please add it to your .env file.",
+            "GOOGLE_API_KEY is not set. Get a free key at https://aistudio.google.com/app/apikey",
             AppExceptionCode.CONFIGURATION_VALIDATION_ERROR,
         )
 
-    model = ChatOpenAI(
-        model=settings.OPENAI_MODEL,
+    model = ChatGoogleGenerativeAI(
+        model=settings.GEMINI_MODEL,
         temperature=0,
-        api_key=settings.OPENAI_API_KEY,
+        google_api_key=settings.GOOGLE_API_KEY,
     )
 
     # Load subagent definitions from agents/ directory
