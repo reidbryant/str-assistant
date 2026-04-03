@@ -10,21 +10,21 @@ name = "str-assistant"
 version = "0.1.0"
 description = "STR Assistant — AI agent for Short-Term Rental investment analysis"
 readme = "README.md"
-requires-python = "==3.12.2"
+requires-python = ">=3.12"
 dependencies = [
     "deepagents==0.4.12",
-    "fastapi==0.135.2",
-    "uvicorn==0.42.0",
-    "pydantic==2.12.5",
-    "pydantic-settings==2.13.1",
-    "python-dotenv==1.2.2",
-    "python-multipart==0.0.22",
-    "langchain-openai==0.3.27",
-    "langchain-mcp-adapters==0.2.2",
-    "langgraph-checkpoint-postgres==3.0.5",
-    "psycopg[binary,pool]==3.3.3",
-    "structlog==25.5.0",
-    "pyyaml==6.0.3",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "python-multipart>=0.0.9",
+    "langchain-openai>=1.1.0",
+    "langchain-mcp-adapters>=0.2.2",
+    "langgraph-checkpoint-postgres>=2.0.0",
+    "psycopg[binary,pool]>=3.1.0",
+    "structlog>=24.0.0",
+    "pyyaml>=6.0.0",
 ]
 
 [project.optional-dependencies]
