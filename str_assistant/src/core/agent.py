@@ -7,7 +7,7 @@ from typing import Any
 import yaml
 from deepagents import SubAgent, create_deep_agent
 from langchain_mcp_adapters.client import MultiServerMCPClient
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 from langgraph.checkpoint.memory import InMemorySaver
 
 from str_assistant.src.core.backend import get_backend
@@ -80,17 +80,17 @@ async def get_str_agent(sso_token: str | None = None):
                 AppExceptionCode.PRODUCTION_MCP_CONNECTION_ERROR,
             )
 
-    # Initialize Google Gemini model
-    if not settings.GOOGLE_API_KEY:
+    # Initialize Groq model (free tier — llama-3.3-70b)
+    if not settings.GROQ_API_KEY:
         raise AppException(
-            "GOOGLE_API_KEY is not set. Get a free key at https://aistudio.google.com/app/apikey",
+            "GROQ_API_KEY is not set. Get a free key at https://console.groq.com",
             AppExceptionCode.CONFIGURATION_VALIDATION_ERROR,
         )
 
-    model = ChatGoogleGenerativeAI(
-        model=settings.GEMINI_MODEL,
+    model = ChatGroq(
+        model=settings.GROQ_MODEL,
         temperature=0,
-        google_api_key=settings.GOOGLE_API_KEY,
+        api_key=settings.GROQ_API_KEY,
     )
 
     # Load subagent definitions from agents/ directory

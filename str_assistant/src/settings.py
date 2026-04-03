@@ -34,9 +34,9 @@ class Settings(BaseSettings):
     POSTGRES_HOST: str = Field(default="pgvector")
     POSTGRES_PORT: int = Field(default=5432)
 
-    # LLM (Google Gemini — free tier)
-    GOOGLE_API_KEY: str = Field(default="")
-    GEMINI_MODEL: str = Field(default="gemini-2.0-flash")
+    # LLM (Groq — 100% free, no credit card)
+    GROQ_API_KEY: str = Field(default="")
+    GROQ_MODEL: str = Field(default="llama-3.3-70b-versatile")
 
     # Langfuse (optional tracing)
     LANGFUSE_PUBLIC_KEY: Optional[str] = Field(default=None)
